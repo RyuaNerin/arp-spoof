@@ -182,9 +182,9 @@ int main(int argc, char* argv[]) {
         }
 
         if(etharp->eth_.type_ == htons(EthHdr::Ip4)){
-            /* is this my packet? */
             struct EthIpv4Packet *ethipv4 = (struct EthIpv4Packet *)packet;
 
+	    /* is this my packet? */
             if(htonl(ethipv4->ip_.ip_dst.s_addr) == attackerIp){
                 continue;
             }
